@@ -12,12 +12,14 @@ def ask_input():
 
 def list_items(filepath):
     # получает исходные запросы из файла с QA
-    queries = set()
+    queries = {}
     text = open(filepath, 'r', encoding='utf-8').readlines()
     del text[0]
     for row in text:
-        query = row.split('\t')[0]
-        queries.add(query)
+        splitted = row.split(';')
+        query = splitted[0]
+        number = splitted[1]
+        queries[query] = number
     return queries
 
 def get_prod_fix(apikey, item):
@@ -35,7 +37,7 @@ def list_proddata(queries_list):
     same_queries = {}
     different_queries = {}
     n = 0
-    for query in queries_list:
+    for query in queries_list.keys():
         fixed = get_prod_fix(apikey, query)
         if query == fixed:
             same_queries[query] = fixed
@@ -48,19 +50,19 @@ def list_proddata(queries_list):
     print('Total number of queries:', n)
     return same_queries, different_queries
 
-def write_data(queries_dict, filepath, repl):
+def write_data(queries_dict, items_counted, filepath, repl):
     new_path = filepath.replace('.csv', '-prod_{}.csv'.format(repl))
     outfile = open(new_path, 'w', encoding='utf-8')
-    outfile.write('initial_query\tfixed_by_prod_model\n')
+    outfile.write('count\tinitial_query\tfixed_by_prod_model\n')
     for query in queries_dict:
-        outfile.write('{}\t{}\n'.format(query, queries_dict[query]))
+        outfile.write('{}\t{}\t{}\n'.format(items_counted[query], query, queries_dict[query]))
     outfile.close()
 
 
-#apikey, path = 'F14Q0I9IV6', 'files\\368-fixed_1.csv'
-apikey, path = ask_input()
+apikey, path = 'F14Q0I9IV6', 'files\\368-fixed_1.csv'
+#apikey, path = ask_input()
 queries = list_items(path)
 same_matches, different_matches = list_proddata(queries)
-write_data(same_matches, path, 'same')
-write_data(different_matches, path, 'diff')
+write_data(same_matches, queries, path, 'same')
+write_data(different_matches, queries, path, 'diff')
 print('Done accessing API.')
