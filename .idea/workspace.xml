@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e9a8e3e8-f289-4963-aac9-81f753b50d9a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/368-fixed_1-prod_diff.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/368-fixed_1-prod_diff.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/files/368-fixed_1-prod_same.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/368-fixed_1-prod_same.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/qa-prod_comparer.py" beforeDir="false" afterPath="$PROJECT_DIR$/prod_model_queries.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/224-balanced-prod_diff.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/224-balanced-prod_diff.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/files/224-balanced-prod_same.csv" beforeDir="false" afterPath="$PROJECT_DIR$/files/224-balanced-prod_same.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prod_model_queries.py" beforeDir="false" afterPath="$PROJECT_DIR$/prod_model_queries.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +17,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/prod_model_queries.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-465">
-              <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
+            <state relative-caret-position="22">
+              <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
+              <folding>
+                <element signature="e#0#48#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -86,6 +88,11 @@
             <path>
               <item name="helper" type="b2602c69:ProjectViewProjectNode" />
               <item name="helper" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="helper" type="b2602c69:ProjectViewProjectNode" />
+              <item name="helper" type="462c0819:PsiDirectoryNode" />
+              <item name="files" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -257,7 +264,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
       <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2733711" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.33286119" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -325,19 +332,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prod_model_queries.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-465">
-          <caret line="18" column="31" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Reporter/Reader.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python37/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="193" selection-start-line="193" selection-end-line="193" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/files/224-balanced-prod.csv">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prod_model_queries.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
           </folding>
         </state>
       </provider>
