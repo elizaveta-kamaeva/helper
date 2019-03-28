@@ -14,12 +14,15 @@ def list_items(filepath):
     # получает исходные запросы из файла с QA
     queries = {}
     text = open(filepath, 'r', encoding='utf-8').readlines()
+    header = text[0].strip().split('\t')
+    searchstring, count = header.index('searchstring'), header.index('count')
     del text[0]
     for row in text:
-        splitted = row.split('\t')
-        query = splitted[0]
-        number = splitted[1]
-        queries[query] = number
+        splitted = row.strip().split('\t')
+        if len(splitted) == len(header):
+            query = splitted[searchstring]
+            number = splitted[count]
+            queries[query] = number
     return queries
 
 def get_prod_fix(apikey, item):
@@ -49,7 +52,7 @@ def list_proddata(queries_list):
     print('Total number of queries:', n)
     return same_queries, different_queries
 
-def write_data(queries_dict, items_counted, filepath, mode = 'w', header='\n*3'):
+def write_data(queries_dict, items_counted, filepath, mode = 'w', header='\n'*3):
     new_path = filepath.replace('.csv', '-prod.csv')
     outfile = open(new_path, mode, encoding='utf-8')
     outfile.write(header)
@@ -58,8 +61,8 @@ def write_data(queries_dict, items_counted, filepath, mode = 'w', header='\n*3')
     outfile.close()
 
 
-apikey, path = '7936JCD8GN', 'files\\224-balanced.csv'
-#apikey, path = ask_input()
+# apikey, path = '7936JCD8GN', 'files\\224-balanced.csv'
+apikey, path = ask_input()
 queries = list_items(path)
 same_matches, different_matches = list_proddata(queries)
 write_data(same_matches, queries, path, header='count\tinitial_query\tfixed_by_prod_model\n')
