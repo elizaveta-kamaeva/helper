@@ -14,8 +14,8 @@ def ask_input():
 def get_queries(filename, sep='\t'):
     filepath = 'infiles\\zero_queries\\' + filename
     df = pd.read_csv(filepath, sep=sep, dtype='str', error_bad_lines=False)
-    query_num_dict = df.set_index('query')['amount'].to_dict()
-    query_url_dict = df.set_index('query')['API url'].to_dict()
+    query_num_dict = df.set_index('query')['count'].to_dict()
+    query_url_dict = df.set_index('query')['Код'].to_dict()
 
     print('Queries from {} extracted.'.format(filename))
     return query_num_dict, query_url_dict
@@ -32,7 +32,7 @@ def get_prod_amount(apikey, query):
 def write_data(query_num_dict, query_url_dict, filepath):
     new_path = filepath.replace('.csv', '_filtered.csv')
     outfile = open(new_path, 'w', encoding='utf-8')
-    header = 'API url\tquery\tamount\n'
+    header = 'Код\tquery\tamount\n'
     outfile.write(header)
     for query in query_num_dict.keys():
         outfile.write('{}\t{}\t{}\n'.format(query_url_dict[query], query, query_num_dict[query]))
@@ -60,7 +60,7 @@ for siteid in apikeydict.keys():
     filtered_urls = {}
     for query in query_amount_dict.keys():
         returned_amount = get_prod_amount(apikey, query)
-        if returned_amount == 0:
+        if returned_amount > 0:
             filtered_queries[query] = query_amount_dict[query]
             filtered_urls[query] = query_url_dict[query]
     write_data(filtered_queries, filtered_urls, 'outfiles\\filtered_zeros\\'+filename)
